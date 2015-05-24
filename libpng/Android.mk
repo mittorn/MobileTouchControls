@@ -14,9 +14,18 @@
 #
 LOCAL_PATH := $(call my-dir)
 
+LOCAL_CFLAGS += $(CFLAGS_OPT)
+ifeq ($(TARGET_ARCH),arm)
+LOCAL_CFLAGS += $(CFLAGS_OPT_ARM)
+endif
+ifeq ($(TARGET_ARCH),x86)
+LOCAL_CFLAGS += $(CFLAGS_OPT_X86)
+endif
+
+
 include $(CLEAR_VARS)
 
-LOCAL_CFLAGS := 
+LOCAL_CFLAGS += 
 
 LOCAL_C_INCLUDES :=  $(TOP_DIR)/zlib/src
 

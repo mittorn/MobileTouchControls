@@ -72,6 +72,15 @@ LOCAL_SRC_FILES :=\
 	zip_unchange_archive.c \
 	zip_unchange_data.c
 
+
+LOCAL_CFLAGS += $(CFLAGS_OPT)
+ifeq ($(TARGET_ARCH),arm)
+LOCAL_CFLAGS += $(CFLAGS_OPT_ARM)
+endif
+ifeq ($(TARGET_ARCH),x86)
+LOCAL_CFLAGS += $(CFLAGS_OPT_X86)
+endif
+
 LOCAL_LDLIBS := -lz
 LOCAL_EXPORT_LDLIBS := -lz 
 #include $(BUILD_SHARED_LIBRARY)
