@@ -5,7 +5,15 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := touchcontrols
 
-LOCAL_CFLAGS := -Werror -DANDROID_NDK
+LOCAL_CFLAGS := -DANDROID_NDK
+
+LOCAL_CFLAGS += $(CFLAGS_OPT)
+ifeq ($(TARGET_ARCH),arm)
+LOCAL_CFLAGS += $(CFLAGS_OPT_ARM)
+endif
+ifeq ($(TARGET_ARCH),x86)
+LOCAL_CFLAGS += $(CFLAGS_OPT_X86)
+endif
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)
 
@@ -26,7 +34,7 @@ LOCAL_SRC_FILES:= \
  	GLLines.cpp \
  	JNITouchControlsUtils.cpp \
  	
-LOCAL_LDLIBS := -lGLESv1_CM -ldl -llog -lOpenSLES 
+LOCAL_LDLIBS := -lGLESv1_CM -ldl -llog
 LOCAL_STATIC_LIBRARIES := sigc libzip libpng tinyxml 
 
 include $(BUILD_SHARED_LIBRARY)
@@ -56,7 +64,7 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH) $(IDTECH_DIR)  $(IDTECH_DIR)/libpng $(IDTECH_D
 
 LOCAL_SRC_FILES:= $(TC_LOCAL_SRC_FILES)
 
-LOCAL_LDLIBS := -lGLESv2 -ldl -llog -lOpenSLES
+LOCAL_LDLIBS := -lGLESv2 -ldl -llog
 LOCAL_STATIC_LIBRARIES := sigc libzip libpng tinyxml 
 
 include $(BUILD_SHARED_LIBRARY)
