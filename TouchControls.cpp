@@ -7,6 +7,7 @@ extern int android_app_is_shutting_down;
 
 using namespace touchcontrols;
 
+int touchcontrols::ScaleX, touchcontrols::ScaleY;
 
 TouchControls::TouchControls(std::string t,bool en,bool editable, int edit_group,bool showExtraSettings)
 {

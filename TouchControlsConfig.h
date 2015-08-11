@@ -14,8 +14,8 @@
 #define P_MOVE 3
 namespace touchcontrols
 {
-const int ScaleX = 26;
-const int ScaleY = 16;
+extern int ScaleX;
+extern int ScaleY;
 
 }
 
