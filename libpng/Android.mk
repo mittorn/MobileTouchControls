@@ -14,13 +14,7 @@
 #
 LOCAL_PATH := $(call my-dir)
 
-LOCAL_CFLAGS += $(CFLAGS_OPT)
-ifeq ($(TARGET_ARCH),arm)
-LOCAL_CFLAGS += $(CFLAGS_OPT_ARM)
-endif
-ifeq ($(TARGET_ARCH),x86)
-LOCAL_CFLAGS += $(CFLAGS_OPT_X86)
-endif
+include $(XASH3D_CONFIG)
 
 
 include $(CLEAR_VARS)
